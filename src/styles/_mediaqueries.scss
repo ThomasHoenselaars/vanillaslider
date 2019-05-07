@@ -1,0 +1,41 @@
+// MEDIA QUERY MIXIN
+// USE @include mobile {background: red;}
+$mobile: 700px;
+$desktop: 840px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// NORMAL MEDIAQUERIES
+@media (max-width: 700px) {
+  // Hide On Small Screen Class
+  .hide-sm {
+    display: none;
+  }
+
+  // Text Styles
+  .x-large {
+    font-size: 3rem;
+  }
+
+  .large {
+    font-size: 2rem;
+  }
+
+  .medium {
+    font-size: 1.3rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}

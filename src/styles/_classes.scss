@@ -1,0 +1,265 @@
+// Container
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+// Text Styles
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.medium {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.round-img {
+  border-radius: 50%;
+}
+
+.line {
+  height: 1px;
+  background: #ccc;
+  margin: 1.5rem 0;
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  background: $light-color;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background: lighten($dark-color, 20%);
+    color: #fff;
+  }
+
+  &.btn-primary {
+    @include set-background($primary-color);
+    &:hover {
+      background: lighten($primary-color, 5%);
+    }
+  }
+  &.btn-dark {
+    @include set-background($dark-color);
+    &:hover {
+      background: lighten($dark-color, 5%);
+    }
+  }
+  &.btn-succes {
+    @include set-background($succes-color);
+    &:hover {
+      background: lighten($succes-color, 5%);
+    }
+  }
+  &.btn-danger {
+    @include set-background($danger-color);
+    &:hover {
+      background: lighten($danger-color, 5%);
+    }
+  }
+}
+
+// Alerts
+.alert {
+  padding: 0.8rem;
+  margin: 1rem;
+  opacity: 0.9;
+  background: $light-color;
+  color: #333;
+
+  &.alert-primary {
+    @include set-background($primary-color);
+  }
+  &.alert-dark {
+    @include set-background($dark-color);
+  }
+  &.alert-succes {
+    @include set-background($succes-color);
+  }
+  &.alert-danger {
+    @include set-background($danger-color);
+  }
+}
+
+// Badges
+.badge {
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  text-align: center;
+  margin: 0.3rem;
+  background: $light-color;
+  color: #333;
+
+  &.badge-primary {
+    @include set-background($primary-color);
+  }
+  &.badge-dark {
+    @include set-background($dark-color);
+  }
+  &.badge-succes {
+    @include set-background($succes-color);
+  }
+  &.badge-danger {
+    @include set-background($danger-color);
+  }
+}
+
+// Background Classes
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+    border: #ccc 1px solid;
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-succes {
+    @include set-background($succes-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-white {
+    @include set-background(#fff);
+    border: #ccc 1px solid;
+  }
+}
+
+// Dark Overlay, use on PARENT RELATIVE DIV
+.dark-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+// SOCIAL MEDIA COLORS
+.social-links {
+  i {
+    padding: 0.5rem;
+    width: 4rem;
+
+    &.fa-twitter {
+      color: #38a1f3;
+    }
+    &.fa-facebook {
+      color: #3b5998;
+    }
+    &.fa-instagram {
+      color: #3f729b;
+    }
+    &.fa-youtube {
+      color: #c4302b;
+    }
+    &.fa-linkedin {
+      color: #0077b5;
+    }
+  }
+}
+
+// HAMBURGER IN CSS
+// USE CHECKBOX WITH THE CLASS OF TOGGLER
+.toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+.toggler:checked + .hamburger > div:before {
+  top: 0;
+  transform: rotate(90deg);
+}
+.toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+// DIV WITH CLASS HAMBURGER WITH AN EMPTY DIV INSIDE
+.hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  //   HAMBURGER CSS LINES
+  div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background-color: inherit;
+    }
+    &:after {
+      top: 10px;
+    }
+  }
+}
